@@ -7,7 +7,7 @@ export default function App() {
     <div className='container'>
       <header>
         <div className='inner'>
-          <h1>🌳 팝송가사 </h1>
+          <h1>🎈 팝송가사 </h1>
           <input type='text' placeholder='Search song...' />
         </div>
       </header>
