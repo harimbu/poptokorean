@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import About from './pages/About'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Song from './pages/Song'
+import Write from './pages/Write'
 
 export default function App() {
   const [songs, setSongs] = useState([])
@@ -36,6 +37,7 @@ export default function App() {
           <Route path='/song' element={<Song />}>
             <Route path='/song:id' />
           </Route>
+          <Route path='/write' element={<Write />} />
         </Routes>
         <Footer />
       </BrowserRouter>

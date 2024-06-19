@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SongItem from '../components/SongItem'
 import { MdAdd } from 'react-icons/md'
 
@@ -7,7 +8,9 @@ export default function Home({ songs }) {
       <main>
         <div className='btn_area'>
           <div className='write_btn'>
-            <MdAdd />
+            <Link to={'./write'}>
+              <MdAdd />
+            </Link>
           </div>
         </div>
         <ul className='song_list'>
