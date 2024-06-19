@@ -8,7 +8,7 @@ export default function Header() {
         <Link to={'/'}>
           <h1>🎃🧶👢</h1>
         </Link>
-        <MdPerson className='login_btn' />
+        <button>로그인</button>
       </div>
     </header>
   )
