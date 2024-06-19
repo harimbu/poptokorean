@@ -1,155 +1,44 @@
-import { useState } from 'react'
+import { db } from './firebase'
+import { collection, query, where, getDocs } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Footer from './components/Footer'
+import About from './pages/About'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Song from './pages/Song'
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const [songs, setSongs] = useState([])
+
+  async function fetchData() {
+    const q = query(collection(db, 'songs'))
+    const querySnapshot = await getDocs(q)
+    const songs = []
+    querySnapshot.forEach(doc => {
+      songs.push(doc.data())
+    })
+
+    setSongs(songs)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
-    <div className='container'>
-      <header>
-        <div className='inner'>
-          <h1>🎈 팝송가사 </h1>
-          <input type='text' placeholder='Search song...' />
-        </div>
-      </header>
-
-      <main>
-        <ul>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>
-              {' '}
-              And I wish time would slow down. So I could keep your And I wish time would slow down. So I could keep
-              your...
-            </div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-          <li>
-            <div className='thumb'>
-              <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiYYzsaeLVnwKEXkyfZp-Jbgr5oouyK3Eu3g&s'
-                alt=''
-              />
-            </div>
-            <div className='title'>My Funny Valentine</div>
-            <div className='singer'>Chet Baker</div>
-            <div className='text'>And I wish time would slow down. So I could keep your...</div>
-            <button>보기</button>
-          </li>
-        </ul>
-      </main>
-
-      <footer>
-        <div className='inner'>
-          <span>(c) 2024. harimbu@gmail.com</span>
-          <div className='footer_menu'>
-            <span>about</span>
-            <span>login</span>
-          </div>
-        </div>
-      </footer>
+    <div className='wrap'>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home songs={songs} />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/song' element={<Song />}>
+            <Route path='/song:id' />
+          </Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   )
 }

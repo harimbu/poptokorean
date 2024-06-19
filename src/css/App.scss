@@ -1,12 +1,12 @@
-.container {
+.wrap {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 .inner {
-  max-width: 1100px;
+  width: 1200px;
   margin: 0 auto;
-  height: 70px;
+  height: 60px;
   padding: 0 16px;
   display: flex;
   align-items: center;
@@ -14,43 +14,109 @@
 }
 
 header {
-  border-bottom: 1px solid #ddd;
-  input {
-    padding: 10px;
-    border: 1px solid #999;
-    border-radius: 4px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+
+  h1 {
+    font-size: 26px;
+  }
+
+  .login_btn {
+    font-size: 32px;
+    cursor: pointer;
+
+    &:hover {
+      color: #2563eb;
+    }
   }
 }
 
 main {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 0 16px;
 
-  ul {
+  ul.song_list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
-    li {
+    li.song {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 16px;
+
+      .thumb {
+        width: 50px;
+        height: 50px;
+
+        img {
+          display: block;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 100%;
+        }
+      }
 
       .title {
+        flex: 2;
         cursor: pointer;
+
         &:hover {
           text-decoration: underline;
         }
       }
 
-      .thumb img {
-        width: 50px;
+      .singer {
+        flex: 1;
       }
 
-      button {
-        margin-left: auto;
+      .text {
+        flex: 4;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
+
+      .btns {
+        display: flex;
+        gap: 4px;
+      }
+    }
+  }
+}
+
+.song_box {
+  display: flex;
+  gap: 50px;
+  margin: 50px 0;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    h2 {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    h3 {
+      font-size: 15px;
+      color: #666;
+    }
+
+    .text {
+      margin: 20px 0;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
   }
 }
@@ -58,9 +124,48 @@ main {
 footer {
   margin-top: auto;
   border-top: 1px solid #ddd;
+  background-color: #eee;
+  font-size: 14px;
+  color: #333;
 
-  .footer_menu {
+  .copyright {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .info_btn {
+    font-size: 24px;
+
+    &:hover {
+      color: #2563eb;
+    }
+  }
+}
+
+.btn_area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.write_btn {
+  border: 1px solid #3b82f6;
+  background-color: transparent;
+  color: #2563eb;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #3b82f6;
+    color: #fff;
   }
 }
