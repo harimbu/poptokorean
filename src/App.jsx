@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Song from './pages/Song'
 import Write from './pages/Write'
 import Home from './pages/Home'
+import Login from './pages/Login'
 
 export default function App() {
   const [songs, setSongs] = useState([])
@@ -31,9 +32,10 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />}>
           <Route path='/' element={<List songs={songs} />} />
-          <Route path='/about' element={<About />} />
           <Route path='/song/:id' element={<Song />} />
           <Route path='/write' element={<Write />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/login' element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>
