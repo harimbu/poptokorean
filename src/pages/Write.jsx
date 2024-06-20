@@ -41,11 +41,11 @@ export default function Write() {
   return (
     <div className='song_contents'>
       <div className='left_input'>
-        <input type='text' placeholder='이미지' value={image} onChange={e => setImage(e.target.value)} />
+        <input type='text' placeholder='이미지 url' value={image} onChange={e => setImage(e.target.value)} />
         <div className='image'>
           <img src={image} alt='' />
         </div>
-        <input type='text' placeholder='videoID' value={videoID} onChange={e => setVideoID(e.target.value)} />
+        <input type='text' placeholder='youtube video ID' value={videoID} onChange={e => setVideoID(e.target.value)} />
         <YouTube
           videoId={videoID}
           opts={opts}
