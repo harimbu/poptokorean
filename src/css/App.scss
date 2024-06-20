@@ -101,7 +101,7 @@ ul.song_list {
   display: flex;
   gap: 48px;
 
-  .left {
+  .left_input {
     width: 560px;
     .image img {
       width: 300px;
@@ -116,7 +116,7 @@ ul.song_list {
     }
 
     button {
-      margin-top: 50px;
+      margin-top: 100px;
     }
   }
 
@@ -128,7 +128,7 @@ ul.song_list {
     flex: 1;
 
     .do_write {
-      margin-top: 50px;
+      margin-top: 100px;
     }
   }
 }

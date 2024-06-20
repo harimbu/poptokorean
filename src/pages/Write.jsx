@@ -23,6 +23,7 @@ export default function Write() {
   }
 
   async function write() {
+    if (image == '' || videoID == '' || title == '' || singer == '' || text == '') return
     const docRef = doc(collection(db, 'songs'))
     const data = {
       id: docRef.id,
@@ -36,6 +37,7 @@ export default function Write() {
 
     // later...
     await setDoc(docRef, data)
+    navigate('/')
   }
 
   return (
