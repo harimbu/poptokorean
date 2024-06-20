@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function About() {
   return (
     <main>
       <div>about page</div>

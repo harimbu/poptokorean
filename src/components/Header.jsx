@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <div className='inner'>
         <Link to={'/'}>
-          <h1>🎃🧶👢</h1>
+          <h1>🧶</h1>
         </Link>
         <button>로그인</button>
       </div>

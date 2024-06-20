@@ -15,8 +15,12 @@ export default function Song() {
   }
 
   return (
-    <main>
-      <div className='song_box'>
+    <div className='song_box'>
+      <div className='title_area'>
+        <h2>{location.title}</h2>
+        <p>{location.singer}</p>
+      </div>
+      <div className='song_contents'>
         <div className='left'>
           <YouTube
             videoId={location.movieID}
@@ -27,14 +31,12 @@ export default function Song() {
           />
         </div>
         <div className='right'>
-          <h2>{location.title}</h2>
-          <h3>{location.singer}</h3>
-          <p className='text'>{location.text}</p>
+          <p dangerouslySetInnerHTML={{ __html: `${location.text}` }} />
           <button onClick={() => navigate(-1)}>
             <MdArrowBack /> 뒤로가기
           </button>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
